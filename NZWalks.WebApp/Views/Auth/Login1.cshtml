@@ -1,0 +1,38 @@
+﻿@model LoginRequestVM
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card shadow-lg p-4" style="width: 400px; border-radius: 15px;">
+        <h3 class="text-center mb-4">Login</h3>
+
+        @if (ViewData["Message"] != null)
+        {
+            <div class="alert alert-danger">
+                @ViewData["Message"]
+            </div>
+        }
+
+        <form asp-action="Login1" method="post">
+            <div class="form-group mb-3">
+                <label asp-for="Username" class="form-label"></label>
+                <input asp-for="Username" class="form-control" placeholder="Enter email" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control" placeholder="Enter password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
